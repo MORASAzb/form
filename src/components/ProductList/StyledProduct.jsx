@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import PropTypes from 'prop-types';
 
 const Div = styled.div`
     width: 50%;
@@ -52,37 +53,54 @@ const SKU = styled.span`
 
 const StyledProduct = (props) => {
 
-const product=props.product;
+    const product = props.product;
 
     return (
         <Div>
             <Title>
-                < product.productName />
+                {product.productName}
             </Title>
             <Description>
-                <product.productDescription />
+                {product.productDescription}
+
             </Description>
             <Brand>
-                <product.productBrand />
+                {product.productBrand}
             </Brand>
             <Category>
-                <product.productCategory />
-                <product.productCount />
+                {product.productCategory}
+                {product.productCount}
 
             </Category>
 
             <Price>
-                <product.productPrice />
+                {product.productPrice}
 
             </Price>
 
             <SKU>
-                <product.productSKU />
+                {product.productSKU}
             </SKU>
 
 
         </Div>
     )
 }
+
+
+
+StyledProduct.propTypes = {
+    product: PropTypes.shape({
+        productName: PropTypes.string.isRequired,
+        productDescription: PropTypes.string.isRequired,
+        productBrand: PropTypes.string.isRequired,
+        productCategory: PropTypes.string.isRequired, 
+        productCount: PropTypes.number.isRequired,
+        productPrice: PropTypes.number.isRequired,
+        productSKU: PropTypes.string.isRequired,
+    }).isRequired,
+};
+
+
 
 export default StyledProduct

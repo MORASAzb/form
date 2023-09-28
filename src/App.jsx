@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 import ProductDataForm from './components/ProductDataForm/ProductDataForm';
 import ProductList from './components/ProductList/ProductList';
 
@@ -17,11 +18,14 @@ const Container = styled.div`
 
 
 function App() {
+ // eslint-disable-next-line no-unused-vars
+ const [list, setList] = useState(<ProductList />)
+
   return (
     <>
       <Container>
         <ProductList />
-        <ProductDataForm />
+        <ProductDataForm  setList={setList}/>
       </Container>
     </>
   )
